@@ -3,7 +3,7 @@ const axios = require('axios')
 const forecast = (latitude, longitude, placeName) => {
     return new Promise(resolve => {
         //geting temperature
-        axios.get(`http://api.weatherstack.com/current?access_key=52e2237acc64b4914e9682d45baff2d1&query=${latitude},${longitude}&units=m`).
+        axios.get(`http://api.weatherstack.com/current?access_key=e3b07515dee0119aadf8255338ad1767&query=${latitude},${longitude}&units=m`).
             then(async response => {
                 if (response.data.error) {
                     console.log('Please specify a valid location');
