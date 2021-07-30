@@ -30,11 +30,12 @@
     ></script>
     <title>{{title}}</title>
   </head>
+
   <body>
       <div class="container text-center">
           {{>header}}
           <form>
-            <input placeholder="Enter a Location" style="border: 1px solid #cccccc;padding: 8px"/>
+            <input placeholder="Enter a Location" style="border: 1px solid #cccccc; padding: 8px"/>
             <button class="btn mb-1 btn-primary">
               Search
             </button>
@@ -44,17 +45,20 @@
           {{>footer}}
       </div>
   </body>
-  <script>
 
+  <script>
     const weatherForm = document.querySelector('form')
     const search = document.querySelector('input')
     let p1 = document.querySelector('#p1')
     let p2 = document.querySelector('#p2')
+    
     weatherForm.addEventListener('submit', (e) => {
       p1.textContent = 'Loading...'
       p2.textContent = ''
       e.preventDefault()
+
       const location = search.value
+      
       fetch(`/weather?address=${location}`).then(response => {
         response.json().then(data => {
           if(data.error) {

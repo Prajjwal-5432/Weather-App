@@ -39,7 +39,6 @@ app.get('/weather', async (req, res) => {
         })
     }
     let data = await getTemperature(req.query.address)
-    console.log(data)
     res.json(data)
 })
 app.get('/help/*', (req, res) => {
