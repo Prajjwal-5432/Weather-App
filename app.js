@@ -1,19 +1,14 @@
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
-const { getTemperature } = require('./utils/getTemperature')
+const { getTemperature } = require('./src/getTemperature')
 
 const app = express()
 const port = process.env.PORT || 3000
 
-//pointing express to source(src) folder
-app.use(express.static(path.join(__dirname, '../public')))
-//pointing to views folder
-app.set('views', path.join(__dirname, '../templates/views'))
-//pointing to partials folder
-hbs.registerPartials('../templates/partials')
-
 app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, './templates/views'))
+hbs.registerPartials('./templates/partials')
 
 app.get('', (req, res) => {
     res.render('index', {
