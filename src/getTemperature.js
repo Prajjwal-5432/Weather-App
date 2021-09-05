@@ -1,10 +1,10 @@
 const axios = require('axios')
 const { forecast } = require('./forecast')
 
-const getTemperature = (address) => {
+const getTemperature = address => {
     return new Promise(resolve => {
         //getting latitude and longitude
-        axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=${YOUR_ACCESS_KEY}&limit=1`).
+        axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=${`YOUR ACCESS KEY`}&limit=1`).
             then(async response => {
                 if (response.data.features.length) {
                     const latitude = response.data.features[0].center[1]
